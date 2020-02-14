@@ -50,6 +50,11 @@ userSchema.virtual("password")
 //methods for encryption
 
 userSchema.methods={
+    //for user authentication 
+    authenticate:function(plainText){//plain text from the controllers auth
+        return this.encryptPassword(plainText)===this.hashed_password
+
+    },
     encryptPassword:function(password){
         if(!password) return ""
         //encryption password from doc of crypto of node doc
