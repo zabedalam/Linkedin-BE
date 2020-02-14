@@ -2,6 +2,7 @@ const express = require("express")
 const morgan =require("morgan")//this is need for middleware
 const mongoose =require("mongoose")
 const bodyParser =require("body-parser")//package required for parsing json data
+const expressValidator=require("express-validator")
 const dotenv  =require("dotenv")
 dotenv.config()//invoke for read env file
 
@@ -28,6 +29,7 @@ next()
 server.use(morgan("dev"))//middleware 
 server.use(myMiddleware)//middleware
 server.use(bodyParser.json())//it is important to keep before route,this is for parsing json data
+server.use(expressValidator())//error handling
 server.use("/",postRoutes)
 server.use("/post",postRoutes)
 

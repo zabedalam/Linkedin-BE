@@ -1,5 +1,6 @@
 const express =require("express")
 const postController=require("../../controllers/post")
+const validator =require("../../validator")
 
 const router =express.Router()
 
@@ -8,7 +9,7 @@ const router =express.Router()
 // }
 
 router.get("/",postController.getPost)
-router.post("/post",postController.createPost)
+router.post("/post",validator.createValidator,postController.createPost)
 
 // module.exports={
 //     getPost
