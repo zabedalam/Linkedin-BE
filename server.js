@@ -14,6 +14,8 @@ mongoose.connection.on("error", err =>{
 //bring routes
 // const {getPost} =require("./src/routes/post")
 const postRoutes =require("./src/routes/post")
+const authRoutes =require("./src/routes/auth")
+
 
 const server =express()//create server from express module
 
@@ -31,7 +33,8 @@ server.use(myMiddleware)//middleware
 server.use(bodyParser.json())//it is important to keep before route,this is for parsing json data
 server.use(expressValidator())//error handling
 server.use("/",postRoutes)
-server.use("/post",postRoutes)
+// server.use("/post",postRoutes)
+server.use("/",authRoutes)
 
 
 

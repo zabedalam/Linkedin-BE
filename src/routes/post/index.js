@@ -1,6 +1,6 @@
 const express =require("express")
 // const postController=require("../../controllers/post")
-const {getPost,createPost}=require("../../controllers/post")
+const {getPost,createPost}=require("../../controllers/post")//destructured the method
 
 const validator =require("../../validator")
 
