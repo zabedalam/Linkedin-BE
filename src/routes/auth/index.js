@@ -1,12 +1,13 @@
 const express =require("express")
-// const postController=require("../../controllers/post")
 const {signup}=require("../../controllers/auth")//destructured the method
 
 // const validator =require("../../validator")
+const {userSignupValidator} =require("../../validator")
+
 
 const router =express.Router()
 
-router.post("/signup",signup)
+router.post("/signup",userSignupValidator,signup)
 
 
 module.exports=router
