@@ -1,6 +1,7 @@
 const express =require("express")
 // const postController=require("../../controllers/post")
 const {getPost,createPost}=require("../../controllers/post")//destructured the method
+const {requireSignin}=require("../../controllers/auth")//destructured the method
 
 const validator =require("../../validator")
 
@@ -10,7 +11,7 @@ const router =express.Router()
 //     res.send("Hello me here")
 // }
 
-router.get("/",getPost)
+router.get("/",requireSignin,getPost)
 router.post("/post",validator.createValidator,createPost)
 
 // module.exports={

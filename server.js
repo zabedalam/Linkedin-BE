@@ -37,6 +37,13 @@ server.use(cookieParser())
 server.use("/",postRoutes)
 // server.use("/post",postRoutes)
 server.use("/",authRoutes)
+server.use(function(err,req,res,next){//this function from express-jwt doc for unauthorized error handling
+    if(err.name==="UnauthorizedError"){
+        res.status(401).json({
+            error:"Unauthorized"
+        })
+    }
+})
 
 
 

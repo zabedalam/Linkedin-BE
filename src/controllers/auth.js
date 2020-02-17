@@ -1,6 +1,7 @@
 const jwt =require("jsonwebtoken")//for creating the token with the combination of jwt_secret and user id
 const dotenv  =require("dotenv")
 dotenv.config()//invoke for read env file
+const expressJwt=require("express-jwt")//for protecting the route,basically authorization
 
 
 const User =require("../models/users")
@@ -59,3 +60,8 @@ exports.signout=(req,res)=>{
         message:"Signout success!"
     })
 }
+
+//Authorization,valid user send token to server for accessing the endpoints and that will check with given secret key this method work as a middleware
+exports.requireSignin=expressJwt({
+    secret:process.env.JWT_SECRET
+})
