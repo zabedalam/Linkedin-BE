@@ -1,5 +1,5 @@
 const User =require("../models/users")
-const _ =require("lodash")
+const _ =require("lodash")//it is javascript utility library it provides many functionality here in my case i will user extend()
 
 exports.userById=(req,res,next,id)=>{
     User.findById(id).exec((err,user)=>{
