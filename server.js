@@ -16,6 +16,8 @@ mongoose.connection.on("error", err =>{
 // const {getPost} =require("./src/routes/post")
 const postRoutes =require("./src/routes/post")
 const authRoutes =require("./src/routes/auth")
+const userRoutes =require("./src/routes/users")
+
 
 
 const server =express()//create server from express module
@@ -35,7 +37,7 @@ server.use(bodyParser.json())//it is important to keep before route,this is for 
 server.use(expressValidator())//error handling
 server.use(cookieParser())
 server.use("/",postRoutes)
-// server.use("/post",postRoutes)
+server.use("/",userRoutes)
 server.use("/",authRoutes)
 server.use(function(err,req,res,next){//this function from express-jwt doc for unauthorized error handling
     if(err.name==="UnauthorizedError"){
