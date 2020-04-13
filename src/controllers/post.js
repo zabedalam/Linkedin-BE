@@ -1,4 +1,7 @@
 const Post=require("../models/post")
+const multer = require("multer");
+const path = require("path");
+const fs = require("fs");
 exports.getPost=(req,res)=>{
     // res.send("Hello Me Here")
     // res.json({
@@ -37,7 +40,10 @@ exports.createPost=(req,res)=>{
             post:result
         })
     })
-        
-    
+}
+
+const upload = multer({});
+exports.uploadImage=(req,res,next)=>{
 
 }
+
