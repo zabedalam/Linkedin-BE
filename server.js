@@ -17,6 +17,7 @@ mongoose.connection.on("error", err =>{
 const postRoutes =require("./src/routes/post")
 const authRoutes =require("./src/routes/auth")
 const userRoutes =require("./src/routes/users")
+const profileRoutes=require("./src/routes/profile")
 
 
 
@@ -39,6 +40,7 @@ server.use(cookieParser())
 server.use("/",postRoutes)
 server.use("/",userRoutes)
 server.use("/",authRoutes)
+server.use("/",profileRoutes)
 server.use(function(err,req,res,next){//this function from express-jwt doc for unauthorized error handling
     if(err.name==="UnauthorizedError"){
         res.status(401).json({
