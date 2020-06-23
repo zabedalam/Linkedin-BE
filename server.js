@@ -6,11 +6,8 @@ const expressValidator=require("express-validator")
 const cookieParser = require('cookie-parser')//for parsing the token to requested user with valid id which is used for identified the user
 const dotenv  =require("dotenv")
 dotenv.config()//invoke for read env file
-
-mongoose.connect(process.env.MONGO_SRV,{ useNewUrlParser: true,useUnifiedTopology: true }).then(()=>console.log("DB CONNECTED"))
-mongoose.connection.on("error", err =>{
-    console.log(`DB connection error : ${err.message}`)
-})
+const mongo_db=require("./src/db")
+mongo_db
 
 //bring routes
 // const {getPost} =require("./src/routes/post")

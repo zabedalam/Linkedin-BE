@@ -2,7 +2,7 @@ const mongoose =require("mongoose")
 
 //https://www.npmjs.com/package/mongoose-unique-validator
 //mongoose-unique-validator is a plugin which adds pre-save validation for unique fields within a Mongoose schema.
-var uniquevalidator=mongoose("mongoose-unique-validator")
+var uniquevalidator=require("mongoose-unique-validator")
 
 const profileSchema=new mongoose.Schema({
     name:{
